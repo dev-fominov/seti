@@ -1,0 +1,32 @@
+.contentMyposts {
+	display: flex;
+	flex-direction: column;
+	padding: 30px;
+	box-sizing: border-box;
+}
+.contentMyposts .top {
+	margin-bottom: 30px;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-end;
+}
+.contentMyposts .top textarea {
+	outline: none;
+	font-size: 16px;
+	margin-bottom: 20px;
+	border-radius: 5px;
+	padding: 10px 20px;
+	height: 100px;
+	width: 100%;
+}
+.contentMyposts .top button {
+	padding: 10px 40px;
+	background-color: chartreuse;
+	font-weight: 700;
+	cursor: pointer;
+	border-radius: 5px;
+}
+.contentMyposts .top button:hover {
+	background-color: chocolate;
+	color: #fff;
+}

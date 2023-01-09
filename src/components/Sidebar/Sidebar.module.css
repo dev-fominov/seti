@@ -1,0 +1,13 @@
+.sidebar {
+  width: 400px;
+  background-color: aliceblue;
+  padding: 30px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+}
+.sidebar a:not(:last-child) {
+  margin-bottom: 20px;
+  font-size: 18px;
+}
+

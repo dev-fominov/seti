@@ -1,0 +1,4 @@
+.pagebody {
+	width: calc(100% - 430px);
+	background-color: aliceblue;
+}
