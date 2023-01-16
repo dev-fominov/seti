@@ -1,10 +1,15 @@
-import React from 'react';
 import './reset.css';
 import './App.css';
 import { Header } from './components/Header/Header';
 import { Sidebar } from './components/Sidebar/Sidebar';
 import { Pagebody } from './components/Pagebody/Pagebody';
 import { Footer } from './components/Footer/Footer';
+
+
+export type DataType = {
+  state: PagesType
+  dispatch: (action: any)=>void
+}
 
 export type PagesType = {
   profilePage: ProfileType
@@ -13,14 +18,12 @@ export type PagesType = {
 
 export type ProfileType = {
   posts: PostType[]
+  newPostText: string
 }
 export type DialogsType = {
   dialogsData: DialogsDataType[]
   messageData: MessageDataType[]
-}
-
-export type DataType = {
-  state: PagesType
+  newMessageBody: string
 }
 
 export type StateType = {
@@ -50,7 +53,7 @@ function App(props: DataType) {
       <Header />
       <div className={"contentbody"}>
         <Sidebar />
-        <Pagebody state={props.state} />
+        <Pagebody state={props.state} dispatch={props.dispatch} />
       </div>
       <Footer />
     </div>

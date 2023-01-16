@@ -10,5 +10,15 @@
   justify-content: space-between;
 }
 
+button {
+  padding: 10px 40px;
+  background-color: chartreuse;
+  font-weight: 700;
+  cursor: pointer;
+  border-radius: 5px;
+}
 
-
+button:hover {
+  background-color: chocolate;
+  color: #fff;
+}

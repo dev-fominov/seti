@@ -1,22 +1,30 @@
 import { PostType } from '../../../../App'
+import { addPostAC, updateNewPostAC } from '../../../../redax/profileReducer'
 import s from './MyPosts.module.css'
 import { Post } from './Post/Post'
 
 type PostsType = {
 	posts: PostType[]
+	newPostText: string
+	dispatch: (action: any) => void
 }
 
 export const MyPosts = (props: PostsType) => {
 
-	const addPost = () => {
+	const addPostHandler = () => {
+		props.dispatch(addPostAC())
+	}
 
+	const onPostChange = (e: any) => {
+		let text = e.currentTarget.value
+		props.dispatch(updateNewPostAC(text))
 	}
 
 	return (
 		<div className={s.contentMyposts}>
 			<div className={s.top}>
-				<textarea></textarea>
-				<button onClick={addPost}>Add post</button>
+				<textarea onChange={onPostChange} value={props.newPostText}></textarea>
+				<button onClick={addPostHandler}>Add post</button>
 			</div>
 			<div className={s.bottom}>
 				{
