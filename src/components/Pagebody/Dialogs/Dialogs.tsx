@@ -9,24 +9,24 @@ type DialogsPageType = {
 	dispatch: (action: any) => void
 }
 
-export const Dialogs = (props: DialogsPageType) => {
+export const Dialogs = (props: any) => {
 	const linkActive = (isActive: boolean) => {
 		return { color: isActive ? 'red' : 'black' }
 	}
 	const addMessageHandler = () => {
-		props.dispatch(sendMessageAC())
+		props.addMessage()
 	}
 
 	const onNewMessageChange = (e: any) => {
 		let text = e.currentTarget.value
-		props.dispatch(updateNewMessageBodyAC(text))
+		props.onNewMessage(text)
 	}
 
 	return (
 		<div className={s.contentDialogs}>
 			<div className={s.left}>
 				{
-					props.dialogsPage.dialogsData.map((dialog) => {
+					props.dialogsPage.dialogsData.map((dialog: any) => {
 						return (
 							<NavLink
 								key={dialog.id}
@@ -40,7 +40,7 @@ export const Dialogs = (props: DialogsPageType) => {
 			</div>
 			<div className={s.right}>
 				{
-					props.dialogsPage.messageData.map((m) => {
+					props.dialogsPage.messageData.map((m: any) => {
 						return (
 							<Message key={m.id} message={m.message} />
 						)

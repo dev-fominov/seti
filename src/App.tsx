@@ -7,8 +7,9 @@ import { Footer } from './components/Footer/Footer';
 
 
 export type DataType = {
-  state: PagesType
-  dispatch: (action: any)=>void
+  // state: PagesType
+  store: any
+  // dispatch: (action: any)=>void
 }
 
 export type PagesType = {
@@ -47,13 +48,14 @@ export type PostType = {
   like: number
 }
 
-function App(props: DataType) {
+function App() {
+  
   return (
     <div className={'app-wrapper'}>
       <Header />
       <div className={"contentbody"}>
         <Sidebar />
-        <Pagebody state={props.state} dispatch={props.dispatch} />
+        <Pagebody />
       </div>
       <Footer />
     </div>

@@ -1,23 +1,23 @@
 import { PostType } from '../../../../App'
-import { addPostAC, updateNewPostAC } from '../../../../redax/profileReducer'
 import s from './MyPosts.module.css'
 import { Post } from './Post/Post'
 
 type PostsType = {
 	posts: PostType[]
 	newPostText: string
-	dispatch: (action: any) => void
+	updateNewPostText: (text: string) => void
+	addPost: () => void
 }
 
 export const MyPosts = (props: PostsType) => {
 
 	const addPostHandler = () => {
-		props.dispatch(addPostAC())
+		props.addPost()
 	}
 
 	const onPostChange = (e: any) => {
 		let text = e.currentTarget.value
-		props.dispatch(updateNewPostAC(text))
+		props.updateNewPostText(text)
 	}
 
 	return (
