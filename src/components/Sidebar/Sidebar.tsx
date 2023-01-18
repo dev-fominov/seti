@@ -3,7 +3,8 @@ import { NavLink } from 'react-router-dom'
 
 const menu = [
 	{ id: 1, title: 'Profile', to: '/' },
-	{ id: 2, title: 'Dialogs', to: '/dialogs' }
+	{ id: 2, title: 'Dialogs', to: '/dialogs' },
+	{ id: 3, title: 'Users', to: '/users' }
 ]
 
 export const Sidebar = () => {
