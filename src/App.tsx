@@ -33,6 +33,8 @@ export type StateType = {
   posts: PostType[]
 }
 
+
+
 export type DialogsDataType = {
   id: number
   name: string

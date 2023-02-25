@@ -1,4 +1,4 @@
-import store from './redax/redax-store';
+import {store} from './redax/redax-store';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';

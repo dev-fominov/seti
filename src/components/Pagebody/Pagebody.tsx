@@ -1,8 +1,8 @@
 import { Route, Routes } from 'react-router-dom'
 import s from './Pagebody.module.css'
 import { Profile } from './Profile/Profile'
-import { DialogsContainer } from './Dialogs/DialogsContainer'
-import { UsersContainer } from './Users/UsersContainer'
+import { Dialogs } from './Dialogs/Dialogs'
+import { Users } from './Users/Users'
 
 export const Pagebody = (props: any) => {
 	
@@ -10,13 +10,13 @@ export const Pagebody = (props: any) => {
 		<div className={s.pagebody}>
 			<Routes>
 				<Route path={'/'} element={
-					<Profile store={props.store} />
+					<Profile />
 				} />
 				<Route path={'/dialogs'} element={
-					<DialogsContainer store={props.store} />
+					<Dialogs />
 				} />
 				<Route path={'/users'} element={
-					<UsersContainer />
+					<Users />
 				} />
 			</Routes>
 		</div>

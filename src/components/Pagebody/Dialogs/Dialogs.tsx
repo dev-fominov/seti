@@ -3,30 +3,31 @@ import s from './Dialogs.module.css'
 import { Message } from './Message'
 import { DialogsType } from '../../../App'
 import { sendMessageAC, updateNewMessageBodyAC } from '../../../redax/dialogsReducer'
+import { useDispatch, useSelector } from 'react-redux'
+import { AppRootStateType } from '../../../redax/redax-store'
+import { memo, useCallback } from 'react'
 
-type DialogsPageType = {
-	dialogsPage: DialogsType
-	dispatch: (action: any) => void
-}
+export const Dialogs = memo(() => {
 
-export const Dialogs = (props: any) => {
+	const dialogsPage = useSelector<AppRootStateType, DialogsType>(state => state.dialogsPage)
+	const dispatch = useDispatch()
+
 	const linkActive = (isActive: boolean) => {
 		return { color: isActive ? 'red' : 'black' }
 	}
-	const addMessageHandler = () => {
-		props.addMessage()
-	}
+	const addMessageHandler = useCallback(() => {
+		dispatch(sendMessageAC())
+	}, [])
 
-	const onNewMessageChange = (e: any) => {
-		let text = e.currentTarget.value
-		props.onNewMessage(text)
-	}
+	const onNewMessageChange = useCallback((e: any) => {
+		dispatch(updateNewMessageBodyAC(e.currentTarget.value))
+	}, [])
 
 	return (
 		<div className={s.contentDialogs}>
 			<div className={s.left}>
 				{
-					props.dialogsPage.dialogsData.map((dialog: any) => {
+					dialogsPage.dialogsData.map(dialog => {
 						return (
 							<NavLink
 								key={dialog.id}
@@ -40,17 +41,13 @@ export const Dialogs = (props: any) => {
 			</div>
 			<div className={s.right}>
 				{
-					props.dialogsPage.messageData.map((m: any) => {
-						return (
-							<Message key={m.id} message={m.message} />
-						)
-					})
+					dialogsPage.messageData.map(m => <Message key={m.id} message={m.message} />)
 				}
 				<div className={s.sendMessage}>
-					<textarea onChange={onNewMessageChange} value={props.dialogsPage.newMessageBody}></textarea>
+					<textarea onChange={onNewMessageChange} value={dialogsPage.newMessageBody}></textarea>
 					<button onClick={addMessageHandler}>Send</button>
 				</div>
 			</div>
 		</div>
 	)
-}
+})

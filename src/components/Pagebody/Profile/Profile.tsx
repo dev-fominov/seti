@@ -1,18 +1,10 @@
-import { PostType, ProfileType } from '../../../App'
-import { MyPostsContainer } from './MyPosts/MyPostsContainer'
+import { MyPosts } from './MyPosts/MyPosts'
 import s from './Profile.module.css'
 
-export type PostsType = {
-	// profilePage: ProfileType
-	// dispatch: (action: any) => void
-	store: any
-}
-
-export const Profile = (props: PostsType) => {
-	
+export const Profile = () => {
 	return (
 		<div className={s.contentProfile}>
-			<MyPostsContainer />
+			<MyPosts />
 		</div>
 	)
 }
